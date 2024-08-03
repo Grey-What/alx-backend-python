@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""moudle contains a type-annotated function add"""
+"""module contains a type-annotated function add"""
 
 
 def add(a: float, b: float) -> float:
