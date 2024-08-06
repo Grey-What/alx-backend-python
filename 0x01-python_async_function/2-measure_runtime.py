@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""module contains a coroutine that measures the runtime"""
+"""module contains a function that measures the runtime of coroutine"""
 
 import asyncio
 import time
