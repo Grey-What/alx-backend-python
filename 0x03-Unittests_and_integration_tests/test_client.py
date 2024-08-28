@@ -89,3 +89,15 @@ class TestGithubOrgClient(unittest.TestCase):
             ])
             mock_public_repos_url.assert_called_once()
         mocked_get_json.assert_called_once()
+
+    @parameterized.expand([
+        ({'license': {'key': "bsd-3-clause"}}, "bsd-3-clause", True),
+        ({'license': {'key': "bsl-1.0"}}, "bsd-3-clause", False),
+    ])
+    def test_has_license(self, repo: dict, license_key: str,
+                         expected: bool) -> None:
+        """test has_license"""
+        org_client = GithubOrgClient("google")
+        client_has_license = org_client.has_license(repo, license_key)
+
+        self.assertEqual(client_has_license, expected)
