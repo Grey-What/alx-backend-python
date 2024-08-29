@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """test module for client.py"""
 import unittest
-from parameterized import parameterized
+from parameterized import parameterized, parameterized_class
 from unittest.mock import patch, MagicMock, Mock, PropertyMock
 from client import GithubOrgClient
 from fixtures import TEST_PAYLOAD
@@ -105,7 +105,7 @@ class TestGithubOrgClient(unittest.TestCase):
         self.assertEqual(client_has_license, expected)
 
 
-@parameterized.expand([
+@parameterized_class([
     {
         'org_payload': TEST_PAYLOAD[0][0],
         'repos_payload': TEST_PAYLOAD[0][1],
